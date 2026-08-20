@@ -1,0 +1,522 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #c9b46f;
+  overflow-x: hidden;
+}
+ .intro-screen {
+            position: fixed;
+            inset: 0;
+
+            width: 100%;
+            height: 100vh;
+
+            z-index: 9999;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+
+            background: #111;
+        }
+
+
+        /* HOTEL IMAGE */
+
+        .intro-image {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transform: scale(1.15);
+
+            animation:
+                imageZoom 3.5s ease forwards;
+        }
+
+
+        /* DARK OVERLAY */
+
+        .intro-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.35),
+                    rgba(0, 0, 0, 0.65)
+                );
+        }
+
+
+        /* CONTENT */
+
+        .intro-content {
+            position: relative;
+
+            z-index: 2;
+
+            text-align: center;
+
+            color: white;
+
+            padding: 20px;
+
+            animation:
+                contentAppear 1.4s ease forwards;
+        }
+
+
+        /* SMALL TEXT */
+
+        .welcome-text {
+            font-size: 14px;
+
+            letter-spacing: 7px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+
+            opacity: 0;
+
+            animation:
+                fadeUp 1s ease 0.3s forwards;
+        }
+
+
+        /* HOTEL NAME */
+
+        .hotel-name {
+            font-family: Georgia, serif;
+
+            font-size: clamp(
+                50px,
+                9vw,
+                120px
+            );
+
+            letter-spacing: 8px;
+
+            font-weight: normal;
+
+            text-transform: uppercase;
+
+            opacity: 0;
+
+            animation: fadeUp 1.2s ease 0.6s forwards;
+        }
+
+
+        /* LINE */
+
+        .intro-line {
+            width: 0;
+
+            height: 1px;
+
+            background: #d6b36a;
+
+            margin: 25px auto;
+
+            animation:
+                lineGrow 1s ease 1s forwards;
+        }
+
+
+        /* TAGLINE */
+
+        .tagline {
+            font-family: Georgia, serif;
+
+            font-size: 18px;
+
+            letter-spacing: 4px;
+
+            color: #e4d19b;
+
+            opacity: 0;
+
+            animation:
+                fadeUp 1s ease 1.2s forwards;
+        }
+
+
+        /* =================================
+           ANIMATIONS
+        ================================= */
+
+        @keyframes imageZoom {
+
+            from {
+                transform: scale(1.15);
+            }
+
+            to {
+                transform: scale(1);
+            }
+
+        }
+
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+
+        @keyframes lineGrow {
+
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100px;
+            }
+
+        }
+
+
+        @keyframes contentAppear {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+        .intro-screen.hide {
+
+            animation:
+                introExit 1s ease forwards;
+
+        }
+
+
+        @keyframes introExit {
+
+            from {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            to {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+
+        }
+
+
+/* navbar */
+
+nav {
+
+  width: 100%;
+  background: white;
+  padding: 5px 20px;
+  position: fixed;
+  z-index: 1000;
+}
+
+.nav-main {
+  max-width: 1400px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO design */
+
+
+
+/* Navbar link */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  font-family: "Courier New", monospace;
+  text-decoration: none;
+  color: #222;
+  font-size: 15px;
+  font-weight: bold;
+
+  padding: 10px 5px;
+
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #b08b35;
+}
+
+/* book btn */
+
+.nav-links .book-btn {
+  background: #c59d5f;
+  color: white;
+
+  padding: 12px 20px;
+  border-radius: 5px;
+}
+
+.nav-links .book-btn:hover {
+  background: #a98243;
+  color: white;
+}
+
+/* special btn for m */
+
+.menu-btn {
+  display: none;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-size: 30px;
+  color: #222;
+
+  cursor: pointer;
+
+  width: 45px;
+  height: 45px;
+}
+.marquee {
+  width: 100%;
+  overflow: hidden;
+
+  /* padding: 2px 0; */
+  
+  background: #c9b46f;
+}
+
+.marquee-track {
+  margin-top: 4.5rem;
+  display: flex;
+  width: max-content;
+
+  animation: moveRight 18s linear infinite;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+
+  flex-shrink: 0;
+}
+
+.text span {
+  display: flex;
+  align-items: center;
+
+  margin-right: 80px;
+
+  white-space: nowrap;
+}
+
+.text img {
+  width: 50px;
+  height: auto;
+
+  display: block;
+}
+
+/* Moving animation */
+
+@keyframes moveRight {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+
+section {
+  min-height: 500px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 40px;
+  font-family: Georgia, serif;
+}
+
+#home {
+  background: #f5f1e5;
+}
+
+#rooms {
+  background: #ddd0a5;
+}
+
+#availability {
+  background: #eee4c8;
+}
+
+#amenities {
+  background: #d4c28b;
+}
+
+#gallery {
+  background: #f5f1e5;
+}
+
+#contact {
+  background: #ddd0a5;
+}
+
+/*  this is for mobile */
+
+@media (max-width: 768px) {
+  nav {
+    padding: 15px 20px;
+  }
+
+  .nav-main {
+    position: relative;
+  }
+
+  
+
+  .menu-btn {
+    display: block;
+  }
+
+  /* Hide menu */
+
+  .nav-links {
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 15px);
+    left: 0;
+
+    width: 100%;
+
+    background: whitesmoke;
+
+    flex-direction: column;
+    align-items: center;
+
+    gap: 0;
+
+    padding: 15px 0;
+
+    border-radius: 0 0 10px 10px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Mobile_links */
+
+  .nav-links a {
+    width: 100%;
+
+    text-align: center;
+
+    padding: 15px 20px;
+
+    font-size: 16px;
+  }
+
+  
+  .nav-links .book-btn {
+    width: auto;
+
+    margin-top: 10px;
+
+    padding: 12px 30px;
+  }
+
+
+
+  .marquee {
+    padding: 15px 0;
+  }
+
+  .text span {
+    margin-right: 50px;
+  }
+
+  .text img {
+    width: 40px;
+  }
+
+
+  section {
+    min-height: 400px;
+
+    font-size: 28px;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .logo {
+    font-size: 20px;
+  }
+
+  .menu-btn {
+    font-size: 27px;
+  }
+
+  .text img {
+    width: 35px;
+  }
+}
